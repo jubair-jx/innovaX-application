@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import React from "react";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -8,7 +9,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           InnovaX
         </h1>
       </div>
-      <main className=" md:pl-80">{children}</main>
+      <main className=" md:pl-80">
+        <Navbar />
+        {children}
+      </main>
     </section>
   );
 };
