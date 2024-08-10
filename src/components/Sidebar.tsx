@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import {
-  CodeIcon,
+  Code2Icon,
   HomeIcon,
   Image,
-  LayoutDashboard,
+  LayoutDashboardIcon,
   MessageCircle,
   MusicIcon,
   Settings2,
@@ -15,7 +15,7 @@ import Link from "next/link";
 const sideBarData = [
   {
     lable: "Dashboard",
-    icon: LayoutDashboard,
+    icon: LayoutDashboardIcon,
     href: "/dashboard",
     color: "text-sky-500",
   },
@@ -39,7 +39,7 @@ const sideBarData = [
   },
   {
     lable: "Code Generation",
-    icon: CodeIcon,
+    icon: Code2Icon,
     href: "/code-generation",
     color: "text-purple-500",
   },
