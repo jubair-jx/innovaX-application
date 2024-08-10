@@ -12,6 +12,7 @@ import {
   VideoIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 const sideBarData = [
   {
     lable: "Dashboard",
@@ -65,6 +66,7 @@ const OthersData = [
   },
 ];
 const Sidebar = () => {
+  const pathname = usePathname();
   return (
     <div className=" space-y-6 p-3 flex flex-col ">
       <div className="  px-3 py-1 flex-1">
@@ -81,7 +83,12 @@ const Sidebar = () => {
           <Link
             href={route.href}
             key={route.href}
-            className="text-base flex  p-3 w-full justify-start font-medium cursor-pointer bg-white/15 text-white hover:text-white hover:bg-white/10 rounded-lg transition"
+            className={cn(
+              "text-base flex  p-3 w-full justify-start font-medium cursor-pointer bg-white/10 text-white hover:text-white hover:bg-white/25 rounded-lg transition",
+              pathname === route.href
+                ? "bg-white/25 text-gray-200"
+                : "bg-white/10 text-gray-100"
+            )}
           >
             <div className=" flex items-center flex-1">
               <route.icon className={cn("h-6 w-6 mr-3", route.color)} />
@@ -97,7 +104,7 @@ const Sidebar = () => {
           <Link
             href={route.href}
             key={route.href}
-            className="text-base flex  p-3 w-full justify-start font-medium cursor-pointer bg-white/15 text-white hover:text-white hover:bg-white/10 rounded-lg transition"
+            className="text-base flex  p-3 w-full justify-start font-medium cursor-pointer bg-white/10 text-white hover:text-white hover:bg-white/25 rounded-lg transition"
           >
             <div className=" flex items-center flex-1">
               <route.icon className={cn("h-6 w-6 mr-3", route.color)} />
