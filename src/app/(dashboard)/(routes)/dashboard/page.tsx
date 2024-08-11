@@ -17,7 +17,7 @@ const tools = [
     icon: MessageCircle,
     color: "text-violet-600",
     bgColor: "text-violet-700",
-    href: "/conversation",
+    href: "/conversation-generation",
   },
   {
     label: "Video Generation",
