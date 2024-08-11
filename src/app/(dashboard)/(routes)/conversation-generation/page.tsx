@@ -3,14 +3,20 @@ import CommonHeading from "@/components/common-heading";
 import RUForm from "@/components/RUForm/RUForm";
 import RUInput from "@/components/RUForm/RUInput";
 import Button from "@/components/ui/button";
-import { MessageCircleIcon } from "lucide-react";
+import { ConversationFormSchema } from "@/validation/validationSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { LucideLoader2, MessageCircleIcon } from "lucide-react";
+import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 
 const ConversationPage = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const defaultValues = {
     prompt: "",
   };
-  const handleFormSubmit = async (values: FieldValues) => {};
+  const handleFormSubmit = async (values: FieldValues) => {
+    console.log(values);
+  };
   return (
     <div>
       <CommonHeading
@@ -23,29 +29,29 @@ const ConversationPage = () => {
       <div className=" px-4 lg:px-6">
         <RUForm
           onSubmit={handleFormSubmit}
-          // resolver={zodResolver(personalInfoSchema)}
+          resolver={zodResolver(ConversationFormSchema)}
           defaultValues={defaultValues}
         >
           <div className="col-span-12 lg:col-span-10">
             <RUInput type="text" name="prompt" />
           </div>
           <Button
-            // disabled={prompt === "" || isLoading}
+            disabled={loading}
             className="disabled:cursor-not-allowed col-span-12 lg:col-span-2 w-full"
             type="submit"
           >
-            Generate
-            {/* {isLoading ? (
+            {loading ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <LucideLoader2 className="mr-2 h-4 w-4 animate-spin" />
                 Generating...
               </>
             ) : (
               <>Generate</>
-            )} */}
+            )}
           </Button>
         </RUForm>
       </div>
+      <div className=" space-y-4 mt-4 px-4 lg:px-6">Messages Content Here</div>
     </div>
   );
 };

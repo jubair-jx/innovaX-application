@@ -26,26 +26,28 @@ const RUInput = ({
       name={name}
       defaultValue=""
       render={({ field, fieldState: { error } }) => (
-        <div className="flex flex-col">
-          <label
-            className="font-Raleway text-base mb-1 font-medium"
-            htmlFor={label}
-          >
-            {label}
-          </label>
-          <Input
-            className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-            placeholder="Please enter your prompt...."
-            {...field}
-            // disabled={isLoading}
-            autoFocus
-          />
+        <>
+          <div className="flex flex-col">
+            <label
+              className="font-Raleway text-base mb-1 font-medium"
+              htmlFor={label}
+            >
+              {label}
+            </label>
+            <Input
+              className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent text-base"
+              placeholder="Please enter your prompt...."
+              {...field}
+              // disabled={isLoading}
+              autoFocus
+            />
+          </div>
           {error && (
             <p className="text-sm text-red-600 dark:text-red-500">
               <span className="font-medium">{error.message}</span>
             </p>
           )}
-        </div>
+        </>
       )}
     />
   );
